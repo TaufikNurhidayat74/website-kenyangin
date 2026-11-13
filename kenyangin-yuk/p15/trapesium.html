@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <h2>Detail Perhitungan Luas Trapesium</h2>
+    <div id="alur"></div>
+
+    <script>
+        var garisAtas = 8;
+        var garisBawah = 12;
+        var tinggi = 5;
+        var luas = 0.5 * (garisAtas + garisBawah) * tinggi;
+
+        document.getElementById("alur").innerHTML = 
+            "Diketahui:<br>" +
+            "- Garis Atas (a) = " + garisAtas + "<br>" +
+            "- Garis Bawah (b) = " + garisBawah + "<br>" +
+            "- Tinggi (t) = " + tinggi + "<br><br>" +
+            "Rumus: 1/2 × (a + b) × t<br>" +
+            "Proses: 0.5 × (" + garisAtas + " + " + garisBawah + ") × " + tinggi + "<br>" +
+            "Proses: 0.5 × " + (garisAtas + garisBawah) + " × " + tinggi + "<br><br>" +
+            "<b>Hasil Luas = " + luas + "</b>";
+    </script>
+
+</body>
+</html>

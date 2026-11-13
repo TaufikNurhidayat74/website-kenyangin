@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dapur – Kenyangin Yuk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dapur.css">
+</head>
+<body>
+
+<header class="bar">
+  <div>
+    <h1>Dapur · Kenyangin Yuk</h1>
+    <p id="modeInfo" class="bar__mode"></p>
+  </div>
+  <div class="bar__right">
+    <button id="btnSound" class="btn btn--ghost" type="button">🔕 Bunyi mati</button>
+    <span id="clock" class="clock"></span>
+  </div>
+</header>
+
+<p id="errorBar" class="error" hidden></p>
+
+<main class="board">
+  <section class="col col--baru">
+    <h2>Pesanan Baru <b id="c-baru">0</b></h2>
+    <div class="list" id="l-baru"></div>
+  </section>
+  <section class="col col--diproses">
+    <h2>Sedang Diproses <b id="c-diproses">0</b></h2>
+    <div class="list" id="l-diproses"></div>
+  </section>
+  <section class="col col--siap">
+    <h2>Siap Diantar <b id="c-siap">0</b></h2>
+    <div class="list" id="l-siap"></div>
+  </section>
+  <section class="col col--selesai">
+    <h2>Selesai / Batal <b id="c-selesai">0</b></h2>
+    <div class="list" id="l-selesai"></div>
+  </section>
+</main>
+
+<script src="config.js"></script>
+<script src="orders.js"></script>
+<script src="dapur.js"></script>
+</body>
+</html>

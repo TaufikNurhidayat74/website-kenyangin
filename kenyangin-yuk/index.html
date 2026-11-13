@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#d90429">
+  <title>Kenyangin Yuk – Enjoy Your Meal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app" id="app">
+  <div class="screen" id="screen">
+
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+      <div class="header__text">
+        <p class="header__hello">Hey, Foodie! <span aria-hidden="true">👋</span></p>
+        <h1 class="header__brand">KENYANGIN YUK</h1>
+        <p class="header__tag">Enjoy Your Meal</p>
+        <span class="table-chip" id="tableChip" hidden></span>
+      </div>
+      <div class="header__actions">
+        <button class="icon-btn" id="btnBell" aria-label="Notifications">
+          <svg viewBox="0 0 24 24"><path d="M6 16v-5a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 21h4"/></svg>
+          <span class="badge" id="bellBadge" hidden>0</span>
+        </button>
+        <button class="icon-btn" id="btnCart" aria-label="Open cart">
+          <svg viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.3"/><circle cx="18" cy="20" r="1.3"/><path d="M2 3h3l2.5 12h11L21 7H6"/></svg>
+          <span class="badge" id="cartBadge" hidden>0</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- ===== SEARCH ===== -->
+    <div class="search">
+      <svg class="search__icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+      <input type="search" id="searchInput" placeholder="Find what you want to eat..." autocomplete="off" aria-label="Search menu">
+      <button class="search__filter" id="btnSort" aria-label="Sort menu" title="Sort">
+        <svg viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg>
+      </button>
+    </div>
+    <p class="sort-note" id="sortNote" hidden></p>
+
+    <main id="homeView">
+
+      <!-- ===== HERO CAROUSEL ===== -->
+      <section class="hero" id="heroSection" aria-label="Promo">
+        <div class="hero__track" id="heroTrack">
+
+          <article class="slide slide--red">
+            <div class="slide__copy">
+              <h2 class="slide__title">INDEPENDENCE<br><span>BUNDLE</span></h2>
+              <p class="slide__desc">Enjoy crisp chicken &amp; fresh bites of bliss.</p>
+              <p class="slide__small">The ultimate combo pack<br>for you and your friends</p>
+              <button class="btn-yellow" data-order="1">ORDER NOW! <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            </div>
+            <div class="slide__art">
+              <span class="sticker sticker--price">Only<br><b>Rp 129.000</b></span>
+              <span class="sticker sticker--best">Best Offer!</span>
+              <img class="slide__img" src="img/independence-bundle.webp" alt="Independence Bundle">
+              <span class="sticker sticker--disc">DISCOUNT <b>20%</b></span>
+            </div>
+          </article>
+
+          <article class="slide slide--gold">
+            <div class="slide__copy">
+              <h2 class="slide__title slide__title--dark">BUY 1<br><span>GET 1 BOBA</span></h2>
+              <p class="slide__desc slide__desc--dark">Every Thai Tea Boba order gets a free twin.</p>
+              <p class="slide__small slide__small--dark">Valid every weekend</p>
+              <button class="btn-red" data-order="21">GRAB IT! <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            </div>
+            <div class="slide__art">
+              <span class="sticker sticker--best sticker--dark">Weekend Deal</span>
+              <div class="slide__pair"><img src="img/boba-milk-tea.webp" alt="Boba Milk Tea"><img src="img/classic-milk-tea.webp" alt="Classic Milk Tea"></div>
+            </div>
+          </article>
+
+          <article class="slide slide--dark">
+            <div class="slide__copy">
+              <h2 class="slide__title">FREE<br><span>DELIVERY</span></h2>
+              <p class="slide__desc">On every order above Rp 100.000.</p>
+              <p class="slide__small">Hot food, delivered fast</p>
+              <button class="btn-yellow" data-order="2">ORDER BURGER <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            </div>
+            <div class="slide__art">
+              <span class="sticker sticker--best">Free Ongkir</span>
+              <img class="slide__img" src="img/burger-mega.webp" alt="Mega Jumbo Burger">
+            </div>
+          </article>
+
+        </div>
+        <div class="hero__dots" id="heroDots"></div>
+      </section>
+
+      <!-- ===== CATEGORIES ===== -->
+      <section class="cats" id="cats" aria-label="Categories"></section>
+
+    </main>
+
+    <!-- ===== PRODUCT LIST ===== -->
+    <section class="picks" id="picksSection">
+      <div class="picks__head">
+        <h2 id="picksTitle">Popular Pick</h2>
+        <button class="link-btn" id="btnViewAll">View All <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </div>
+      <div class="picks__list" id="picksList"></div>
+    </section>
+
+    <!-- ===== PROMO BANNER ===== -->
+    <section class="promo" id="promo">
+      <div class="promo__copy">
+        <span class="promo__best">Best Seller!</span>
+        <h2>ULTIMATE<br>BURGER<br>FEST</h2>
+        <p>Burgers so juicy, your taste buds will say thank you.</p>
+        <button class="btn-yellow btn-yellow--sm" data-order="2">Order Burger</button>
+      </div>
+      <div class="promo__art" aria-hidden="true">
+        <span class="promo__sticker">Rp 100.000</span>
+        <img class="promo__img" src="img/burger-bbq.webp" alt="">
+        <img class="promo__img promo__img--b" src="img/lemon-tea.webp" alt="">
+      </div>
+    </section>
+
+    <!-- ===== PROFILE VIEW ===== -->
+    <section class="profile" id="profileView" hidden>
+      <div class="profile__card">
+        <div class="profile__avatar">F</div>
+        <div>
+          <h2>Hey, Foodie!</h2>
+          <p>Kenyangin Yuk member</p>
+        </div>
+      </div>
+      <div class="profile__stats">
+        <div><b id="statOrders">0</b><span>Orders</span></div>
+        <div><b id="statFavs">0</b><span>Favorites</span></div>
+        <div><b>3</b><span>Vouchers</span></div>
+      </div>
+      <ul class="profile__list">
+        <li><button data-soon="Order history">🧾 Order history <i>›</i></button></li>
+        <li><button data-soon="Saved addresses">📍 Saved addresses <i>›</i></button></li>
+        <li><button data-soon="Vouchers">🎟️ My vouchers <i>›</i></button></li>
+        <li><button data-soon="Help center">💬 Help center <i>›</i></button></li>
+      </ul>
+    </section>
+
+    <div class="spacer"></div>
+  </div>
+
+  <!-- ===== BOTTOM NAV ===== -->
+  <nav class="nav" aria-label="Main">
+    <button class="nav__btn is-active" data-nav="home" aria-label="Home">
+      <svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>
+    </button>
+    <button class="nav__btn" data-nav="fav" aria-label="Favorites">
+      <svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.3-9A5.2 5.2 0 0 1 12 6a5.2 5.2 0 0 1 9.3 6c-2.3 4.5-9.3 9-9.3 9z"/></svg>
+    </button>
+    <button class="nav__btn" data-nav="cart" aria-label="Cart">
+      <svg viewBox="0 0 24 24"><path d="M6 7h12l1 13H5z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+    </button>
+    <button class="nav__btn" data-nav="promo" aria-label="Promo">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 15l6-6"/><circle cx="9.5" cy="9.5" r=".8"/><circle cx="14.5" cy="14.5" r=".8"/></svg>
+    </button>
+    <button class="nav__btn" data-nav="profile" aria-label="Profile">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+    </button>
+  </nav>
+
+  <!-- ===== CART SHEET ===== -->
+  <div class="overlay" id="overlay" hidden></div>
+  <aside class="sheet" id="cartSheet" aria-hidden="true" aria-label="Your cart">
+    <div class="sheet__grip"></div>
+    <div class="sheet__head">
+      <h2>Your Cart</h2>
+      <button class="sheet__close" id="btnCloseCart" aria-label="Close cart">✕</button>
+    </div>
+    <div class="sheet__body" id="cartBody"></div>
+    <div class="sheet__foot" id="cartFoot">
+      <label class="field field--row">
+        <span>Table number</span>
+        <input id="tableInput" type="text" inputmode="numeric" maxlength="4" placeholder="e.g. 12" autocomplete="off">
+      </label>
+      <label class="field">
+        <input id="noteInput" type="text" maxlength="80" placeholder="Note for the kitchen (optional)" autocomplete="off">
+      </label>
+      <div class="sheet__row"><span>Subtotal</span><span id="cartSubtotal">Rp 0</span></div>
+      <div class="sheet__row"><span>Delivery</span><span id="cartDelivery">Rp 0</span></div>
+      <div class="sheet__row sheet__row--total"><span>Total</span><span id="cartTotal">Rp 0</span></div>
+      <button class="btn-checkout" id="btnCheckout">Checkout</button>
+    </div>
+  </aside>
+
+  <!-- ===== ORDER SHEET (pilih jumlah + geser untuk pesan) ===== -->
+  <aside class="sheet" id="orderSheet" aria-hidden="true" aria-label="Choose quantity">
+    <div class="sheet__grip"></div>
+    <div class="sheet__head">
+      <h2>Add to Order</h2>
+      <button class="sheet__close" id="btnCloseOrder" aria-label="Close">✕</button>
+    </div>
+
+    <div class="order__item">
+      <div class="order__img"><img id="orderImg" src="" alt=""></div>
+      <div class="order__info">
+        <h3 id="orderName"></h3>
+        <p id="orderMeta"></p>
+        <p class="order__price" id="orderPrice"></p>
+      </div>
+    </div>
+
+    <div class="order__qty">
+      <span>How many?</span>
+      <div class="qty qty--lg">
+        <button id="qtyMinus" aria-label="Decrease">−</button>
+        <span id="qtyVal">1</span>
+        <button id="qtyPlus" aria-label="Increase">+</button>
+      </div>
+    </div>
+
+    <div class="order__total"><span>Total</span><b id="orderTotal">Rp 0</b></div>
+
+    <div class="swipe" id="swipeTrack">
+      <div class="swipe__fill" id="swipeFill"></div>
+      <span class="swipe__label" id="swipeLabel">Slide to add to cart</span>
+      <button class="swipe__handle" id="swipeHandle" aria-label="Slide right to add to cart">
+        <svg viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.3"/><circle cx="18" cy="20" r="1.3"/><path d="M2 3h3l2.5 12h11L21 7H6"/></svg>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ===== NOTIFICATION SHEET ===== -->
+  <aside class="sheet" id="notifSheet" aria-hidden="true" aria-label="Notifications">
+    <div class="sheet__grip"></div>
+    <div class="sheet__head">
+      <h2>Notifications</h2>
+      <button class="sheet__close" id="btnCloseNotif" aria-label="Close notifications">✕</button>
+    </div>
+    <div class="sheet__body" id="notifBody"></div>
+  </aside>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</div>
+
+<script src="config.js"></script>
+<script src="orders.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
